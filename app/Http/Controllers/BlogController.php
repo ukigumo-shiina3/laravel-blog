@@ -50,11 +50,21 @@ class BlogController extends Controller
      * 
      * @return view
      */
-    public function exeStore(Request $request) 
+    public function exeStore(BlogRequest $request) 
     {
         // ブログのデータを受け取る
         $inputs = $request->all();
-        Blog::create($inputs);
+
+        \DB::beginTransaction();
+        try {
+            // ブログを登録
+            Blog::create($inputs);
+            \DB::commit();
+        } catch(\throwable $e) {
+            \DB::rollback();
+            abort(500);
+        }
+        
 
         \Session::flash('err_msg', 'ブログを登録しました');
         return view(route('blogs'));
