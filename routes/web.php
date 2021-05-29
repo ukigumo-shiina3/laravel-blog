@@ -14,4 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'App\Http\Controllers\BlogController@showList')->name('blogs');
+Route::get('/', 'App\Http\Controllers\BlogController@showCreate')->name('create');
+Route::get('/', 'App\Http\Controllers\BlogController@exeStore')->name('store');
 Route::get('/blog/{id}', 'App\Http\Controllers\BlogController@showDetail')->name('show');
