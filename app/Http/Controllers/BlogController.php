@@ -35,4 +35,28 @@ class BlogController extends Controller
 
         return view('blog.detail', ['blog' => $blog]);
     }
+
+       /**
+     * ブログ登録画面を表示する
+     * 
+     * @return view
+     */
+    public function showCreate() {
+        return view('blog.form');
+    }
+
+       /**
+     * ブログを登録する
+     * 
+     * @return view
+     */
+    public function exeStore(Request $request) 
+    {
+        // ブログのデータを受け取る
+        $inputs = $request->all();
+        Blog::create($inputs);
+
+        \Session::flash('err_msg', 'ブログを登録しました');
+        return view(route('blogs'));
+    }
 }
