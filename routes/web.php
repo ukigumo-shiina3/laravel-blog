@@ -17,6 +17,6 @@ Route::get('/', 'App\Http\Controllers\BlogController@showList')->name('blogs');
 Route::get('/blog/create', 'App\Http\Controllers\BlogController@showCreate')->name('create');
 Route::get('/blog/store', 'App\Http\Controllers\BlogController@exeStore')->name('store');
 Route::get('/blog/{id}', 'App\Http\Controllers\BlogController@showDetail')->name('show');
-Route::get('/blog/{id}/edit', 'App\Http\Controllers\BlogController@showEdit')->name('edit');
+Route::get('/blog/edit/{id}', 'App\Http\Controllers\BlogController@showEdit')->name('edit');
 Route::post('/blog/update', 'App\Http\Controllers\BlogController@exeUpdate')->name('update');
 Route::post('/blog/delte/{id}', 'App\Http\Controllers\BlogController@exeDelete')->name('delete');
