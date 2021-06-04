@@ -19,3 +19,4 @@ Route::get('/blog/store', 'App\Http\Controllers\BlogController@exeStore')->name(
 Route::get('/blog/{id}', 'App\Http\Controllers\BlogController@showDetail')->name('show');
 Route::get('/blog/{id}/edit', 'App\Http\Controllers\BlogController@showEdit')->name('edit');
 Route::post('/blog/update', 'App\Http\Controllers\BlogController@exeUpdate')->name('update');
+Route::post('/blog/delte/{id}', 'App\Http\Controllers\BlogController@exeDelete')->name('delete');
